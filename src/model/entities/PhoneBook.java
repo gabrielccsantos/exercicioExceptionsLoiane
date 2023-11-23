@@ -10,9 +10,8 @@ public class PhoneBook {
     }
 
     public Contact listContacts(){
-        for(int i = 0; i < listContact.length; i++){
-            return listContact[i];
-        }
-        return null;
+       for(int i = 0; i < listContact.length; i++){
+           return listContact[i];
+       }
     }
 }
