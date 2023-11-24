@@ -1,4 +1,4 @@
-package model.contactException;
+package model.exception;
 
 public class ContactException extends RuntimeException{
 
