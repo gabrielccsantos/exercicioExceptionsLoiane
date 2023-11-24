@@ -32,6 +32,6 @@ public class PhoneBook {
                  }
              }
          }
-         throw new ContactException(name);
+         throw new ContactException("Nome não encontrado");
     }
 }

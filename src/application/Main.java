@@ -14,28 +14,26 @@ public class Main {
         PhoneBook phoneBook = new PhoneBook();
 
         try {
-
             do {
                 System.out.println("Escolha entre as opções abaixo: ");
                 System.out.println("1 - Procurar contato");
                 System.out.println("2 - Cadastrar contato");
+                System.out.println("3 - Listar contatos");
                 System.out.println("0 - Sair do programa");
                 System.out.print("Digite uma opção: ");
                 choice = read.nextInt();
                 read.nextLine();
 
                 try {
-                    switch (choice) {
-                        case 1:
+                        if(choice == 1){
                             System.out.print("Digite o nome que deseja procurar: ");
                             String nameToSearch = read.nextLine();
 
                             String result = phoneBook.showContact(nameToSearch);
 
                             System.out.println("Phone de " + nameToSearch + ":" + result);
-
-                            break;
-                        case 2:
+                        }
+                        else if( choice == 2){
                             System.out.print("Nome: ");
                             String nameContact = read.nextLine();
                             System.out.print("Phone: ");
@@ -44,19 +42,19 @@ public class Main {
                             phoneBook.addContact(new Contact(nameContact, phoneContact));
 
                             System.out.println("Cadastro feito com sucesso");
-
+                        }
+                        else if(choice == 0){
                             break;
-                        case 0:
-                            break;
-                        default:
+                        }
+                        else {
                             System.out.println("Entrada inválida");
-                    }
+                        }
                 }catch (ContactException ce) {
                     ce.getMessage();
                 }
             }while (choice != 0);
-        }catch (ContactException ce){
-            ce.getMessage();
+        }catch (RuntimeException re){
+            re.getMessage();
         }finally {
             System.out.println("Programa finalizado com sucesso");
             read.close();
