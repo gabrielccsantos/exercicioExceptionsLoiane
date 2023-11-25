@@ -1,6 +1,6 @@
 package application;
 
-import model.exception.ContactException;
+import model.exception.ContactNotExistException;
 import model.entities.Contact;
 import model.entities.PhoneBook;
 
@@ -49,7 +49,7 @@ public class Main {
                         else {
                             System.out.println("Entrada inválida");
                         }
-                }catch (ContactException ce) {
+                }catch (ContactNotExistException ce) {
                     ce.getMessage();
                 }
             }while (choice != 0);

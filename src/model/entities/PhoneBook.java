@@ -1,6 +1,6 @@
 package model.entities;
 
-import model.exception.ContactException;
+import model.exception.ContactNotExistException;
 
 public class PhoneBook {
     private Contact[] listContacts;
@@ -20,7 +20,7 @@ public class PhoneBook {
             }
         }
         if(fullList){
-            throw new ContactException("Agenda cheia");
+            throw new ContactNotExistException("Agenda cheia");
         }
     }
 
@@ -32,6 +32,6 @@ public class PhoneBook {
                  }
              }
          }
-         throw new ContactException("Nome não encontrado");
+         throw new ContactNotExistException("Nome não encontrado");
     }
 }
