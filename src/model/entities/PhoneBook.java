@@ -1,6 +1,7 @@
 package model.entities;
 
 import model.exception.ContactNotExistException;
+import model.exception.PhoneBookFullException;
 
 public class PhoneBook {
     private Contact[] listContacts;
@@ -20,7 +21,7 @@ public class PhoneBook {
             }
         }
         if(fullList){
-            throw new ContactNotExistException("Agenda cheia");
+            throw new PhoneBookFullException("Agenda cheia");
         }
     }
 
