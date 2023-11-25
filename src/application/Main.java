@@ -25,39 +25,34 @@ public class Main {
                 read.nextLine();
 
                 try {
-                        if(choice == 1){
-                            System.out.print("Digite o nome que deseja procurar: ");
-                            String nameToSearch = read.nextLine();
+                    if (choice == 1) {
+                        System.out.print("Digite o nome que deseja procurar: ");
+                        String nameToSearch = read.nextLine();
 
-                            String result = phoneBook.showContact(nameToSearch);
+                        System.out.println(phoneBook.showContact(nameToSearch));
+                    } else if (choice == 2) {
+                        System.out.print("Nome: ");
+                        String nameContact = read.nextLine();
+                        System.out.print("Phone: ");
+                        String phoneContact = read.nextLine();
 
-                            System.out.println("Phone de " + nameToSearch + ":" + result);
-                        }
-                        else if( choice == 2){
-                            System.out.print("Nome: ");
-                            String nameContact = read.nextLine();
-                            System.out.print("Phone: ");
-                            String phoneContact = read.nextLine();
-
-                            phoneBook.addContact(new Contact(nameContact, phoneContact));
-
-                            System.out.println("Cadastro feito com sucesso");
-                        }
-                        else if(choice == 0){
-                            break;
-                        }
-                        else {
-                            System.out.println("Entrada inválida");
-                        }
-                }catch (ContactNotExistException ce) {
-                    ce.getMessage();
+                        phoneBook.addContact(new Contact(nameContact, phoneContact));
+                        
+                        System.out.println("Cadastro feito com sucesso");
+                    } else if (choice == 0) {
+                        break;
+                    } else {
+                        System.out.println("Entrada inválida");
+                    }
+                } catch (ContactNotExistException ce) {
+                    System.out.println(ce.getMessage());
+                    ;
                 }
-            }while (choice != 0);
+            } while (choice != 0);
         }catch (RuntimeException re){
-            re.getMessage();
-        }finally {
-            System.out.println("Programa finalizado com sucesso");
-            read.close();
+            System.out.println(re.getMessage());
         }
+        System.out.println("Programa finalizado com sucesso");
+        read.close();
     }
 }

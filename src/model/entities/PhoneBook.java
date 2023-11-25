@@ -26,10 +26,10 @@ public class PhoneBook {
     }
 
     public String showContact(String name){
-         for (int i = 0; i < listContacts.length; i++){
+         for(int i = 0; i < listContacts.length; i++){
              if(listContacts[i] != null){
-                 if (listContacts[i].getName().equals(name)){
-                     return listContacts[i].getPhone();
+                 if(listContacts[i].getName().equalsIgnoreCase(name)){
+                     return listContacts[i].getName();
                  }
              }
          }
