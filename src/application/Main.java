@@ -18,31 +18,33 @@ public class Main {
                 System.out.println("Escolha entre as opções abaixo: ");
                 System.out.println("1 - Procurar contato");
                 System.out.println("2 - Cadastrar contato");
-                System.out.println("3 - Listar contatos");
                 System.out.println("0 - Sair do programa");
                 System.out.print("Digite uma opção: ");
                 choice = read.nextInt();
                 read.nextLine();
 
                 try {
-                    if (choice == 1) {
-                        System.out.print("Digite o nome que deseja procurar: ");
-                        String nameToSearch = read.nextLine();
+                    switch (choice){
+                        case 1:
+                            System.out.print("Digite o nome que deseja procurar: ");
+                            String nameToSearch = read.nextLine();
 
-                        System.out.println(phoneBook.showContact(nameToSearch));
-                    } else if (choice == 2) {
-                        System.out.print("Nome: ");
-                        String nameContact = read.nextLine();
-                        System.out.print("Phone: ");
-                        String phoneContact = read.nextLine();
+                            System.out.println(phoneBook.showContact(nameToSearch));
+                            break;
+                        case 2:
+                            System.out.print("Nome: ");
+                            String nameContact = read.nextLine();
+                            System.out.print("Phone: ");
+                            String phoneContact = read.nextLine();
 
-                        phoneBook.addContact(new Contact(nameContact, phoneContact));
-                        
-                        System.out.println("Cadastro feito com sucesso");
-                    } else if (choice == 0) {
-                        break;
-                    } else {
-                        System.out.println("Entrada inválida");
+                            phoneBook.addContact(new Contact(nameContact, phoneContact));
+
+                            System.out.println("Cadastro feito com sucesso");
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            System.out.println("Entrada inválida");
                     }
                 } catch (ContactNotExistException ce) {
                     System.out.println(ce.getMessage());
