@@ -48,7 +48,6 @@ public class Main {
                     }
                 } catch (ContactNotExistException ce) {
                     System.out.println(ce.getMessage());
-                    ;
                 }
             } while (choice != 0);
         }catch (RuntimeException re){
